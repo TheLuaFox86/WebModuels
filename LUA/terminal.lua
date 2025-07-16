@@ -9,7 +9,7 @@ _G.term = {
 	read = function()
 		local c = ""
 		local a = function()
-			c = js.global:prompt("input")
+			c = js.global.window:prompt("input")
 			entered = true
 		end
 		ent.onclick = a
