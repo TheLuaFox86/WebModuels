@@ -5,6 +5,7 @@ js.global.document:write([[
 local entered = false
 local ent = js.global.document:getElementById("enter")
 local dsp = js.global.document:getElementById("DSP")
+js.global:alert(dsp)
 _G.term = {
 	read = function()
 		local c = ""
@@ -18,14 +19,16 @@ _G.term = {
 		until entered
 		entered = false
 		ent.onclick = function()
+			return;
 		end
 		return c
 	end,
 	write = function(...)
 	local a = ''
-	for _,v in ipairs({...}) do
+	for _, v in ipairs({...}) do
 		a = a .. v .. "    "
 	end
-	dsp.value = dsp.value .. a:sub(1, #1 - 4)
+	dsp.value = dsp.value .. a:sub(1, #a - 4)
 	end
 }
+dsp.value = ""
